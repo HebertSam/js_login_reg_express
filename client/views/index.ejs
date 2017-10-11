@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Register</h1>
+    <% if (errors !== undefined) {%>
+        <% for (let x in errors) {%>
+            <p><%= errors[x].message %></p>
+        <%}%>
+    <%}%>
+
+    <form action="/register" method="post">
+        <label for="first_name">First Name: <input type="text" name="first_name"></label>
+        <label for="last_name">Last Name: <input type="text" name="last_name"></label>
+        <label for="email">Email: <input type="text" name="email"></label>
+        <label for="birthday">Birthday: <input type="date" name="birthday"></label>
+        <label for="password">Password: <input type="text" name="password"></label>
+        <label for="confrim_pw">Confrim Password: <input type="text" name="confrim_pw"></label>
+        <button type="submit">Submit</button>
+    </form>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <label for="email">Email: <input type="text" name="email"></label>
+        <label for="password">Password: <input type="text" name="password"></label>
+        <button type="submit">Submit</button>
+    </form>
+
+</body>
+</html>
