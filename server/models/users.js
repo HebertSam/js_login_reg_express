@@ -51,16 +51,21 @@ UserSchema.methods.comparePw = function(pw, cpw){
     }
 }
 
+// UserSchema.methods.validatePw2 = function(pw, cb){
+//     let hash = this.password;
+//     bcrypt.compare(pw, hash, function(err, answer){
+//         if(err){
+//             return cb(err)
+//         }
+//         console.log(answer)
+//         return cb(null, answer)
+//     })
+// }
 UserSchema.methods.validatePw2 = function(pw, cb){
     let hash = this.password;
-    bcrypt.compare(pw, hash, function(err, answer){
-        if(err){
-            return cb(err)
-        }
-        console.log(answer)
-        return cb(null, answer)
-    })
+    bcrypt.compare(pw, hash, cb)
 }
+
 
 mongoose.model("User", UserSchema);
 let User = mongoose.model("User");
